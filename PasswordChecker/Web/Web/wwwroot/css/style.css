@@ -1,0 +1,38 @@
+﻿
+.nav-background {
+    border: none;
+}
+
+.container-style {
+    text-align: center;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1000px;
+    }
+}
+
+.title {
+    color: #4CAF50;
+    text-align: center;
+}
+
+.note {
+    color: #AFCDB3;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+a:visited {
+    color: orange;
+    text-decoration: none;
+}
+
+a:hover {
+    color: forestgreen;
+    text-decoration: none;
+}

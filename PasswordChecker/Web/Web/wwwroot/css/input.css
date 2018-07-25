@@ -1,0 +1,47 @@
+﻿.input {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.input-password {
+    font-size: 2.3em;
+    line-height: 1.5em;
+    //border: 0px solid #fff;
+    background: #fff;
+    background: rgba(255,255,255,0.6);
+    border-left: 0;
+    border-right: 0;
+    border: 2px solid #808080;
+    border-radius: 25px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: block;
+    height: 1.5em;
+    margin-top: 1em;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    text-transform: none;
+    width: 60%;
+}
+
+input:focus {
+    outline: 0;
+}
+
+
+*::-webkit-input-placeholder {
+    color: #b7aeae;
+}
+
+*:-moz-placeholder {
+    color: #b7aeae;
+}
+/* Trình duyệt FF 4-18 */
+*::-moz-placeholder {
+    color: #b7aeae;
+}
+/* Trình duyệt FF 19+ */
+*:-ms-input-placeholder {
+    color: #b7aeae;
+} 
