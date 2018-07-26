@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Web.Models;
+using Web.Services;
 
 namespace Web.Controllers
 {
@@ -13,13 +14,28 @@ namespace Web.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            ViewData["ShowResult"] = false;
             ViewData["Title"] = "Kiểm tra mật khẩu";
 
-            var result =;
             return View();
         }
 
-
+        [HttpPost]
+        public IActionResult Index(PasswordModel PasswordModel)
+        {
+            try
+            {
+                ViewData["ShowResult"] = true;
+                CheckTopPassword check = new CheckTopPassword();
+                ViewData["result"] = check.Check(PasswordModel.Password);
+            }
+            catch (Exception)
+            {
+                ViewData["ShowResult"] = true;
+                ViewData["result"] = "Wrong Input Provided.";
+            }
+            return View();
+        }
 
         public IActionResult Error()
         {

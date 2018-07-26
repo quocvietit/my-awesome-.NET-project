@@ -1,7 +1,9 @@
-﻿<div class="title">
+﻿@model PasswordModel
+
+<div class="title">
     <h2>Mật khẩu của bạn an toàn như thế nào&#63;</h2>
     <h5 class="note">
-        &#40;Vui lòng đọc kỹ 
+        &#40;Vui lòng đọc kỹ
         <a href="/term">điều khoản</a>
         trước khi sử dụng ứng dụng&#33;&#41;
     </h5>
@@ -9,12 +11,13 @@
 <br />
 
 <div class="input">
-    <div>
-        <input id="password" type="password" placeholder="Nhập mật khẩu" class="input-password"/>
-    </div>
+    <form asp-controller="Home" asp-action="Index" method="post">
+        <input id="password" asp-for="Password" type="password" placeholder="Nhập mật khẩu" class="input-password" />
+        <button type="submit" >Kiểm tra</button>
+    </form>
 </div>
 
 <div>
     <hr />
-    <h2>@ViewData["Result"]</h2>
+    <h2>@ViewData["result"]</h2>
 </div>
