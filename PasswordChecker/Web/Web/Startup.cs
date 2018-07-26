@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Web.Services;
+using Web.Services.Interface;
+using Web.Utils;
+using Web.Utils.Interface;
 
 namespace Web
 {
@@ -21,6 +25,15 @@ namespace Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
+            services.AddScoped<ICheckTopPasswordService, CheckTopPasswordService>();
+            services.AddScoped<ICheckPasswordService, CheckPasswordService>();
+            services.AddScoped<ICheckLengthPasswordService, CheckLengthPasswordService>();
+
+            services.AddScoped<IReadFile, ReadFile > ();
+            services.AddScoped<IValidate, Validate>();
+
+            services.AddCors();
             services.AddMvc();
         }
 
