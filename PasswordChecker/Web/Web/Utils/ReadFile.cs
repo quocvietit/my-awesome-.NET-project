@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.IO;
 using Web.Utils.Interface;
 
 namespace Web.Utils
 {
-    public class ReadFile: IReadFile
+    public class ReadFile : IReadFile
     {
         public ReadFile() { }
 

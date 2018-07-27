@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Web.Utils;
 using Web.Services.Interface;
 using Web.Utils.Interface;
 using Web.Models;
-using Web.Utils.Interface;
 
 namespace Web.Services
 {

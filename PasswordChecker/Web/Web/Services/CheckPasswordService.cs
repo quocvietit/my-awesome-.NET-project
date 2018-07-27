@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Web.Services.Interface;
+﻿using Web.Services.Interface;
 using Web.Models;
 
 namespace Web.Services
@@ -13,7 +9,7 @@ namespace Web.Services
         private ICheckLengthPasswordService _checkLengthPasswordService;
 
         public CheckPasswordService(ICheckTopPasswordService checkTopPasswordService,
-           ICheckLengthPasswordService checkLengthPasswordService )
+        ICheckLengthPasswordService checkLengthPasswordService)
         {
             _checkTopPasswordService = checkTopPasswordService;
             _checkLengthPasswordService = checkLengthPasswordService;

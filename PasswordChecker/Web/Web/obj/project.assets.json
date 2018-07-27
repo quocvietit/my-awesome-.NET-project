@@ -13251,19 +13251,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\NoName\\.nuget\\packages\\": {}
+    "C:\\Users\\VietVQ\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\IT\\Project\\my-awesome-.NET-project\\PasswordChecker\\Web\\Web\\Web.csproj",
+      "projectUniqueName": "D:\\workspace\\my-awesome-.NET-project\\PasswordChecker\\Web\\Web\\Web.csproj",
       "projectName": "Web",
-      "projectPath": "D:\\IT\\Project\\my-awesome-.NET-project\\PasswordChecker\\Web\\Web\\Web.csproj",
-      "packagesPath": "C:\\Users\\NoName\\.nuget\\packages\\",
-      "outputPath": "D:\\IT\\Project\\my-awesome-.NET-project\\PasswordChecker\\Web\\Web\\obj\\",
+      "projectPath": "D:\\workspace\\my-awesome-.NET-project\\PasswordChecker\\Web\\Web\\Web.csproj",
+      "packagesPath": "C:\\Users\\VietVQ\\.nuget\\packages\\",
+      "outputPath": "D:\\workspace\\my-awesome-.NET-project\\PasswordChecker\\Web\\Web\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\NoName\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\VietVQ\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

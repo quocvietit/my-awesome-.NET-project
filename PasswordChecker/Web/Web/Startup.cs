@@ -30,6 +30,8 @@ namespace Web
             services.AddScoped<ICheckPasswordService, CheckPasswordService>();
             services.AddScoped<ICheckLengthPasswordService, CheckLengthPasswordService>();
 
+            services.AddScoped<IAnalysisPasswordService, AnalysisPasswordService>();
+
             services.AddScoped<IReadFile, ReadFile > ();
             services.AddScoped<IValidate, Validate>();
 

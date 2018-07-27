@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Web.Utils.Interface;
+﻿using Web.Utils.Interface;
+using Web.Models;
 
 namespace Web.Utils
 {
-    public class Validate: IValidate
+    public class Validate : IValidate
     {
         public Validate() { }
 
@@ -14,5 +11,7 @@ namespace Web.Utils
         {
             return (topNumber / 5 + 1) * 5;
         }
+
+
     }
 }

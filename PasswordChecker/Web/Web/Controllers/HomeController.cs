@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Web.Models;
-using Web.Services;
 using Web.Services.Interface;
 
 namespace Web.Controllers
@@ -13,10 +9,13 @@ namespace Web.Controllers
     public class HomeController : Controller
     {
         private ICheckPasswordService _checkPasswordService;
+        private IAnalysisPasswordService _analysisPasswordService;
 
-        public HomeController(ICheckPasswordService checkPasswordService)
+        public HomeController(ICheckPasswordService checkPasswordService,
+            IAnalysisPasswordService analysisPasswordService)
         {
             _checkPasswordService = checkPasswordService;
+            _analysisPasswordService = analysisPasswordService;
         }
 
         [HttpGet]
@@ -37,14 +36,16 @@ namespace Web.Controllers
 
                 MessageModel message1 = _checkPasswordService.GetResultCheckTopPassword(password);
                 MessageModel message2 = _checkPasswordService.GetResultCheckLengthPassword(password);
-            
+                MessageModel message3 = _analysisPasswordService.BruteForceSearchSpace(password);
+
                 ViewData["TopPassword"] = message1.Message;
                 ViewData["LengthPassword"] = message2.Message;
+                ViewData["Time"] = message3.Message;
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ERROR: "+ ex);
+                Console.WriteLine("ERROR: " + ex);
                 ViewData["ShowResult"] = true;
                 ViewData["result"] = "Wrong Input Provided.";
             }
