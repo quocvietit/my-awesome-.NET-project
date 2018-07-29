@@ -4,7 +4,7 @@ namespace Web.Services.Interface
 {
     public interface ICheckPasswordService
     {
-        MessageModel GetResultCheckTopPassword(string password);
-        MessageModel GetResultCheckLengthPassword(string password);
+        string GetResultCheckTopPassword(string password);
+        string GetResultCheckLengthPassword(string password);
     }
 }

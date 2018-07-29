@@ -15,15 +15,20 @@ namespace Web.Services
             _checkLengthPasswordService = checkLengthPasswordService;
         }
 
-        public MessageModel GetResultCheckTopPassword(string password)
+        public string GetResultCheckTopPassword(string password)
         {
             return _checkTopPasswordService.CheckTopPasswords(password);
         }
 
-        public MessageModel GetResultCheckLengthPassword(string password)
+        public string GetResultCheckLengthPassword(string password)
         {
             return _checkLengthPasswordService.CheckLengthPassword(password);
         }
 
+        public string GetResultCheckComplexityPassword(string password)
+        {
+
+            return _checkLengthPasswordService.CheckLengthPassword(password);
+        }
     }
 }

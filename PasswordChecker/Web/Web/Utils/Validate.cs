@@ -11,7 +11,5 @@ namespace Web.Utils
         {
             return (topNumber / 5 + 1) * 5;
         }
-
-
     }
 }

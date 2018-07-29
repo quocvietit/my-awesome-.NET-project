@@ -1,4 +1,5 @@
-﻿using Web.Utils;
+﻿using System;
+using Web.Utils;
 
 namespace Web.Models
 {
@@ -12,27 +13,34 @@ namespace Web.Models
         public ulong Minute { get; set; }
         public ulong Second { get; set; }
 
-        public TimeModel() { }
+        public TimeModel() {
+            this.Year = 0;
+            this.Month = 0;
+            this.Day = 0;
+            this.Hour = 0;
+            this.Minute = 0;
+            this.Second = 0;
+        }
 
         public void SetTime(ulong second)
         {
-            this.Year = second / Constants.Date.Second.YEAR;
-            second = second % Constants.Date.Second.YEAR;
+            ulong tmp = second + this.Second;
+            this.Second = tmp % Contants.Date.MINUTE;
 
-            this.Month = second / Constants.Date.Second.MONTH;
-            second = second % Constants.Date.Second.MONTH;
+            tmp = tmp / Contants.Date.MINUTE + this.Minute;
+            this.Minute = tmp % Contants.Date.HOUR;
 
-            this.Day = second / Constants.Date.Second.DAY;
-            second = second % Constants.Date.Second.DAY;
+            tmp = tmp / Contants.Date.HOUR + this.Hour;
+            this.Hour = tmp % Contants.Date.DAY;
 
-            this.Hour = second / Constants.Date.Second.HOUR;
-            second = second % Constants.Date.Second.HOUR;
+            tmp = tmp / Contants.Date.DAY + this.Day;
+            this.Day = tmp % Contants.Date.MONTH;
 
-            this.Minute = second / Constants.Date.Second.MINUTE;
-            second = second % Constants.Date.Second.MINUTE;
+            tmp = tmp / Contants.Date.MONTH + this.Month;
+            this.Month = tmp % Contants.Date.YEAR;
 
-            this.Second = second / Constants.Date.Second.SECOND;
-            second = second % Constants.Date.Second.SECOND;
+            tmp = tmp / Contants.Date.YEAR + this.Year;
+            this.Year += tmp;
         }
     }
 }

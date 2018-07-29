@@ -18,11 +18,32 @@
 </div>
 
 <div>
-    Đánh giá mật khẩu vừa nhập:
-    <hr />
-    <h2>@ViewData["TopPassword"]</h2>
-    <hr />
-    <h2>Độ dài mật khẩu: @ViewData["LengthPassword"]</h2>
-    <hr />
-    <h2>Thời gian vét cạn: @ViewData["Time"]</h2>
+    <div class="show-analysis">
+        <hr />
+        <div class="text-center">
+            Đánh giá mật khẩu
+               @ViewBag.Result
+        </div>
+        <div>
+            @ViewData["TopPassword"]
+            <br />
+            <p>Độ dài: @ViewData["LengthPassword"]</p>
+            <p>Độ phức tạp: @ViewData["LengthPassword"]</p>
+            <p>Thời gian để phá mật khẩu: ~ @ViewData["Time"]</p>
+        </div>
+    </div>
+    
+    <div class="show-guide">
+        <hr />
+        <p>Gợi ý tạo mật khẩu an toàn hơn:</p>
+        <ul>
+            <li>- Thêm chữ cái vào mật khẩu.</li>
+            <li>- Thêm chữ số vào mật khẩu.</li>
+            <li>- Thay một vài chữ thường thành chữ hoa.</li>
+            <li>- Thay một vài chữ hoa thành chữ thường.</li>
+            <li>- Thêm ký tự đặc biệt như:?\()[]...</li>
+            <li>- Tăng độ dài mật khẩu.</li>
+        </ul>
+
+    </div>
 </div>

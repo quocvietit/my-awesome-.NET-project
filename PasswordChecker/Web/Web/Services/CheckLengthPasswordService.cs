@@ -6,45 +6,39 @@ namespace Web.Services
 {
     public class CheckLengthPasswordService : ICheckLengthPasswordService
     {
-        public MessageModel _messageModel;
-
         public CheckLengthPasswordService()
         {
-            _messageModel = new MessageModel();
-            _messageModel.Title = "Đánh giá độ dài mật khẩu: ";
-            _messageModel.Message = "";
-            _messageModel.Show = true;
         }
 
-        public MessageModel CheckLengthPassword(string password)
+        public string CheckLengthPassword(string password)
         {
             int lengthPassword = password.Length;
-            _messageModel.Message = this.GetMessage(lengthPassword);
+            string message = this.GetMessage(lengthPassword);
 
-            return _messageModel;
+            return message;
         }
 
         public string GetMessage(int lengthPassword)
         {
-            if (lengthPassword <= Constants.Length.Number.VERY_SHORT)
+            if (lengthPassword <= Contants.Length.Number.VERY_SHORT)
             {
-                return Constants.Length.Title.VERY_SHORT;
+                return Contants.Length.Title.VERY_SHORT;
             }
-            else if (lengthPassword <= Constants.Length.Number.SHORT)
+            else if (lengthPassword <= Contants.Length.Number.SHORT)
             {
-                return Constants.Length.Title.SHORT;
+                return Contants.Length.Title.SHORT;
             }
-            else if (lengthPassword <= Constants.Length.Number.MEDIUM)
+            else if (lengthPassword <= Contants.Length.Number.MEDIUM)
             {
-                return Constants.Length.Title.MEDIUM;
+                return Contants.Length.Title.MEDIUM;
             }
-            else if (lengthPassword <= Constants.Length.Number.LONG)
+            else if (lengthPassword <= Contants.Length.Number.LONG)
             {
-                return Constants.Length.Title.LONG;
+                return Contants.Length.Title.LONG;
             }
             else
             {
-                return Constants.Length.Title.TOO_LONG;
+                return Contants.Length.Title.TOO_LONG;
             }
         }
     }

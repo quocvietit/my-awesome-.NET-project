@@ -1,41 +1,60 @@
 ﻿using Web.Models;
 using Web.Services.Interface;
+using Web.Utils;
+using System.Text.RegularExpressions;
 using System;
 
 namespace Web.Services
 {
     public class AnalysisPasswordService : IAnalysisPasswordService
     {
-        public MessageModel _messageModel;
+        public PasswordDetailModel _passwordDetailModel;
 
-        public AnalysisPasswordService() {
-            _messageModel = new MessageModel();
-         }
-
-        public MessageModel BruteForceSearchSpace(string password)
+        public AnalysisPasswordService()
         {
-            TimeModel timeModel = new TimeModel();
-
-            int len = this.SearchSpaceLength(password);
-            ulong time = 0;
-            ulong tmp = 1;
-            ulong spaceDepth = 26;
-
-            for(int i=0; i<len; i++)
-            {
-                time = (ulong) Math.Pow(spaceDepth, tmp);
-                timeModel.SetTime(time);
-                tmp++;
-            }
-
-            _messageModel.Message = timeModel.Hour + "h" + timeModel.Minute + "p";
-
-            return _messageModel;
+            _passwordDetailModel = new PasswordDetailModel();
         }
 
-        public int SearchSpaceDepth(string password)
+        public string BruteForceSearchSpace()
         {
-            return 0;
+            TimeModel timeModel = new TimeModel();
+            ulong space = 1;
+            ulong time = 0;
+
+            int len = _passwordDetailModel.Length;
+            int spaceDepth = _passwordDetailModel.SpaceDeth;
+
+
+            for (int i = 1; i <= len; i++)
+            {
+                space *= (ulong)spaceDepth;
+                time = space / Contants.BILLON;
+                timeModel.SetTime(time);
+            }
+
+             string message = timeModel.Year + "y - " + timeModel.Month + "m - " + timeModel.Day + "d - " + timeModel.Hour + "h - " + timeModel.Minute + "m - " + timeModel.Second + "s";
+
+            return message;
+        }
+
+        public void AnalysisSpaceDethPassword(string password)
+        {
+            _passwordDetailModel.Password = password;
+            _passwordDetailModel.Length = this.SearchSpaceLength(password);
+
+            _passwordDetailModel.UpperCase = this.SearchSpaceDepth(_passwordDetailModel.Password, Contants.Alphabet.Regular.UPPER_CASE);
+            _passwordDetailModel.LowerCase = this.SearchSpaceDepth(_passwordDetailModel.Password, Contants.Alphabet.Regular.LOWER_CASE);
+            _passwordDetailModel.Digit = this.SearchSpaceDepth(_passwordDetailModel.Password, Contants.Alphabet.Regular.DIGIT);
+            _passwordDetailModel.Symbol = this.SearchSpaceDepth(_passwordDetailModel.Password, Contants.Alphabet.Regular.SYMBOL);
+
+            _passwordDetailModel.SetSpaceDeth();
+        }
+
+        public int SearchSpaceDepth(string text, string pattern)
+        {
+            Regex re = new Regex(pattern);
+            MatchCollection result = re.Matches(text);
+            return result.Count;
         }
 
         public int SearchSpaceLength(string password)

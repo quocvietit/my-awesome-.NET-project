@@ -4,8 +4,9 @@ namespace Web.Services.Interface
 {
     public interface IAnalysisPasswordService
     {
-        MessageModel BruteForceSearchSpace(string password);
-        int SearchSpaceDepth(string password);
+        string BruteForceSearchSpace();
+        void AnalysisSpaceDethPassword(string password);
+        int SearchSpaceDepth(string text, string pattern);
         int SearchSpaceLength(string password);
     }
 }

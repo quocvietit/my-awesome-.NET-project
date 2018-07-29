@@ -33,21 +33,14 @@ namespace Web.Controllers
             {
                 ViewData["ShowResult"] = true;
                 string password = PasswordModel.Password;
-
-                MessageModel message1 = _checkPasswordService.GetResultCheckTopPassword(password);
-                MessageModel message2 = _checkPasswordService.GetResultCheckLengthPassword(password);
-                MessageModel message3 = _analysisPasswordService.BruteForceSearchSpace(password);
-
-                ViewData["TopPassword"] = message1.Message;
-                ViewData["LengthPassword"] = message2.Message;
-                ViewData["Time"] = message3.Message;
+                ViewBag.Result = "<p>ahihi</p><br/><p>Ahihi</p>";
 
             }
             catch (Exception ex)
             {
                 Console.WriteLine("ERROR: " + ex);
                 ViewData["ShowResult"] = true;
-                ViewData["result"] = "Wrong Input Provided.";
+                ViewData["result"] = "Có vẻ đã xảy ra lỗi";
             }
             return View();
         }

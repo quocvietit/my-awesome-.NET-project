@@ -1,7 +1,30 @@
 ﻿namespace Web.Utils
 {
-    public static class Constants
+    public static class Contants
     {
+        public const ulong BILLON = 10000000000;
+        public static class Message
+        {
+            public const string TOP_PASSWORD = "Mật khẩu thuộc top {0} được sử dụng hàng đầu trên thế giới!";
+            
+            public static class Level
+            {
+                public const string VERY_WEAK = "RẤT YẾU";
+                public const string WEAK = "YẾU";
+                public const string MEDIUM = "TRUNG BÌNH";
+                public const string STRONG = "MẠNH";
+                public const string VERY_STRONG = "RẤT Mạnh";
+            }
+
+            public static class Color
+            {
+                public const string VERY_WEAK = "#FF0000" ;
+                public const string WEAK = "#990000";
+                public const string MEDIUM = "#00EE00";
+                public const string STRONG = "#00AA00";
+                public const string VERY_STRONG = "#008800";
+            }
+        }
         public static class Length
         {
             public static class Number
@@ -21,7 +44,6 @@
                 public const string LONG = "Dài!";
                 public const string TOO_LONG = "Quá dài!";
             }
-
         }
 
         public static class Date
@@ -35,6 +57,13 @@
                 public const int MONTH = 2592000;
                 public const int YEAR = 31536000;
             }
+
+            public const int SECOND = 1;
+            public const int MINUTE = 60;
+            public const int HOUR = 60;
+            public const int DAY = 24;
+            public const int MONTH = 30;
+            public const int YEAR = 12;
 
         }
 
@@ -92,6 +121,14 @@
                 public const int THIRTEEN = 59;
                 public const int FOURTEEN = 59;
                 public const int FIFTEEN = 95;
+            }
+
+            public static class Regular
+            {
+                public const string UPPER_CASE = "[A-Z]";
+                public const string LOWER_CASE = "[a-z]";
+                public const string DIGIT = "[0-9]";
+                public const string SYMBOL = "[!\"#$%&'()*+,-\\.\\/:;<=>?@[\\]^`{|}~_]";
             }
 
         }

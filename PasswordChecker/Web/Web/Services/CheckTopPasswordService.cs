@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Web.Services.Interface;
+using Web.Utils;
 using Web.Utils.Interface;
-using Web.Models;
 
 namespace Web.Services
 {
@@ -13,7 +13,6 @@ namespace Web.Services
         public IValidate _validate;
 
         public List<string> _passwords;
-        public MessageModel _messageModel;
 
         public CheckTopPasswordService(IReadFile readFile, IValidate validate)
         {
@@ -21,11 +20,6 @@ namespace Web.Services
             _validate = validate;
 
             _passwords = this.GetTopPasswords();
-
-            _messageModel = new MessageModel();
-            _messageModel.Title = "Mật khẩu của bạn thường được sử dụng. Nó sẽ bị bẻ khoá gần như ngay lập tức";
-            _messageModel.Message = "";
-            _messageModel.Show = false;
         }
 
         public List<String> GetTopPasswords()
@@ -33,21 +27,12 @@ namespace Web.Services
             return _readFile.ReadTopPasswordFile().ToList();
         }
 
-        public MessageModel CheckTopPasswords(string password)
+        public string CheckTopPasswords(string password)
         {
             bool isTopPassword = this.Check(password);
-            if (isTopPassword)
-            {
-                int topNumber = this.GetTopNumber(password);
-
-                _messageModel.Message = "Mật khẩu thuộc top " + topNumber + " được sử dụng hàng đầu trên thế giới!";
-                _messageModel.Show = true;
-            }
-            else
-            {
-                _messageModel.Show = false;
-            }
-            return _messageModel;
+            int topNumber = this.GetTopNumber(password);
+            string message = String.Format(Contants.Message.TOP_PASSWORD, topNumber);
+            return message;
         }
 
         public bool Check(string password)

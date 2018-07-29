@@ -36,3 +36,7 @@ a:hover {
     color: forestgreen;
     text-decoration: none;
 }
+
+.text-center{
+  text-align: center;
+}
