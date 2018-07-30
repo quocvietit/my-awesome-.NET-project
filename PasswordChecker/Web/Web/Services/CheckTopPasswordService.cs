@@ -30,8 +30,13 @@ namespace Web.Services
         public string CheckTopPasswords(string password)
         {
             bool isTopPassword = this.Check(password);
-            int topNumber = this.GetTopNumber(password);
-            string message = String.Format(Contants.Message.TOP_PASSWORD, topNumber);
+            string message = null;
+
+            if (isTopPassword)
+            {
+                int topNumber = this.GetTopNumber(password);
+                message = String.Format(Contants.Message.Result.TOP_PASSWORD, topNumber);
+            }
             return message;
         }
 

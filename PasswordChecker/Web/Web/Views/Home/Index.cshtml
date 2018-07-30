@@ -1,49 +1,83 @@
-﻿@model PasswordModel
+﻿@model ViewModel
 
-<div class="title">
-    <h2>Mật khẩu của bạn an toàn như thế nào&#63;</h2>
-    <h5 class="note">
-        &#40;Vui lòng đọc kỹ
-        <a href="/term">điều khoản</a>
-        trước khi sử dụng ứng dụng&#33;&#41;
-    </h5>
+<div class ="home-content">
+    <div class="title">
+        <h2>Mật khẩu của bạn an toàn như thế nào&#63;</h2>
+        <h5 class="note">
+            &#40;Vui lòng đọc kỹ
+            <a href="/term">điều khoản</a>
+            trước khi sử dụng ứng dụng&#33;&#41;
+        </h5>
+    </div>
+    <br />
+
+    <div class="input">
+        <form asp-controller="Home" asp-action="Index" method="post">
+            <input id="password" asp-for="PasswordModel.Password" type="password" placeholder="Nhập mật khẩu" class="input-password" />
+            <br/>
+            <button type="submit">KIỂM TRA</button>
+        </form>
+    </div>
 </div>
-<br />
 
-<div class="input">
-    <form asp-controller="Home" asp-action="Index" method="post">
-        <input id="password" asp-for="Password" type="password" placeholder="Nhập mật khẩu" class="input-password" />
-        <button type="submit" >Kiểm tra</button>
-    </form>
-</div>
-
+@if (Model != null) {
 <div>
-    <div class="show-analysis">
-        <hr />
-        <div class="text-center">
-            Đánh giá mật khẩu
-               @ViewBag.Result
+    <hr />
+    @if (Model.ResultModel.Error == null)
+    {
+        <div class="show-analysis">
+            <div class="text-center text-bold">
+                <p>Đánh giá mật khẩu</p>
+                <p style="color:@Model.ResultModel.LevelColor">@Model.ResultModel.Level</p>
+            </div>
+            <div>
+                <p class="text-center">@Model.ResultModel.Message</p>
+                <div>
+                    <p>@Model.ResultModel.Length</p>
+                    <p>@Model.ResultModel.Complexity</p>
+                    <p>@Model.ResultModel.Time</p>
+                </div>
+            </div>
         </div>
-        <div>
-            @ViewData["TopPassword"]
-            <br />
-            <p>Độ dài: @ViewData["LengthPassword"]</p>
-            <p>Độ phức tạp: @ViewData["LengthPassword"]</p>
-            <p>Thời gian để phá mật khẩu: ~ @ViewData["Time"]</p>
+        @if (Model.RecommendModel.Title != null)
+        {
+            <div class="show-guide">
+                <hr />
+                <p >@Model.RecommendModel.Title </p>
+                <ul class="clear-dot">
+                    @if (@Model.RecommendModel.AllCase != null)
+                    {
+                        <li>@Model.RecommendModel.AllCase </li>
+                    }
+                    @if (@Model.RecommendModel.UpperCase != null)
+                    {
+                        <li>@Model.RecommendModel.UpperCase </li>
+                    }
+                    @if (@Model.RecommendModel.LowerCase != null)
+                    {
+                        <li>@Model.RecommendModel.LowerCase </li>
+                    }
+                    @if (@Model.RecommendModel.Digit != null)
+                    {
+                        <li>@Model.RecommendModel.Digit </li>
+                    }
+                    @if (@Model.RecommendModel.Symbol != null)
+                    {
+                        <li>@Model.RecommendModel.Symbol </li>
+                    }
+                    @if (@Model.RecommendModel.Length != null)
+                    {
+                        <li>@Model.RecommendModel.Length </li>
+                    }
+                 </ul>
+            </div>
+            }
+     }
+     else
+      {
+        <div class="text-center show-error">
+            @Model.ResultModel.Error
         </div>
-    </div>
-    
-    <div class="show-guide">
-        <hr />
-        <p>Gợi ý tạo mật khẩu an toàn hơn:</p>
-        <ul>
-            <li>- Thêm chữ cái vào mật khẩu.</li>
-            <li>- Thêm chữ số vào mật khẩu.</li>
-            <li>- Thay một vài chữ thường thành chữ hoa.</li>
-            <li>- Thay một vài chữ hoa thành chữ thường.</li>
-            <li>- Thêm ký tự đặc biệt như:?\()[]...</li>
-            <li>- Tăng độ dài mật khẩu.</li>
-        </ul>
-
-    </div>
+     }
 </div>
+}

@@ -1,16 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Web.Models;
 using System.Diagnostics;
+using Web.Utils;
 
 namespace Web.Controllers
 {
     public class ContactController : Controller
     {
+        public ContactController()
+        {
+        }
+
         public IActionResult Index()
         {
-            ViewData["Title"] = "Liên Hệ";
-            ViewData["Message"] = "Mọi chi tiết vui lòng liên hệ:";
-
+            ViewData["Title"] = Contants.Title.CONTRACT;
             return View();
         }
 

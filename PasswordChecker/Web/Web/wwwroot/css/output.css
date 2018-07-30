@@ -4,5 +4,11 @@
 }
 
 .show-guide {
-    font-style: inherit;
+    font-style: italic;
+    font-size: 22px;
+}
+
+.show-error {
+    font-weight: bold;
+    font-size: 120%;
 }

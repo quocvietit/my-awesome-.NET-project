@@ -20,26 +20,29 @@ namespace Web.Services
 
         public string GetMessage(int lengthPassword)
         {
+            string message = "";
             if (lengthPassword <= Contants.Length.Number.VERY_SHORT)
             {
-                return Contants.Length.Title.VERY_SHORT;
+                message = Contants.Length.Title.VERY_SHORT;
             }
             else if (lengthPassword <= Contants.Length.Number.SHORT)
             {
-                return Contants.Length.Title.SHORT;
+                message = Contants.Length.Title.SHORT;
             }
             else if (lengthPassword <= Contants.Length.Number.MEDIUM)
             {
-                return Contants.Length.Title.MEDIUM;
+                message = Contants.Length.Title.MEDIUM;
             }
             else if (lengthPassword <= Contants.Length.Number.LONG)
             {
-                return Contants.Length.Title.LONG;
+                message = Contants.Length.Title.LONG;
             }
             else
             {
-                return Contants.Length.Title.TOO_LONG;
+                message = Contants.Length.Title.TOO_LONG;
             }
+
+            return string.Format(Contants.Message.Result.LENGTH_PASSWORD, lengthPassword, message);
         }
     }
 }

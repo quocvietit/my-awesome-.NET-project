@@ -4,5 +4,9 @@
     {
 
         public string Password { get; set; }
+
+        public PasswordModel()
+        {
+        }
     }
 }

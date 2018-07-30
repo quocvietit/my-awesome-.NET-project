@@ -40,3 +40,17 @@ a:hover {
 .text-center{
   text-align: center;
 }
+
+.clear-dot {
+    list-style-type: none;
+}
+
+.text-bold {
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 150%;
+}
+
+.home-content{
+    margin-top: 5%;
+}

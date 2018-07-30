@@ -42,5 +42,37 @@ namespace Web.Models
             tmp = tmp / Contants.Date.YEAR + this.Year;
             this.Year += tmp;
         }
+
+        public string GetTime()
+        {
+            if (this.Year > 0)
+            {
+                return string.Format(Contants.Date.Message.YEAR, this.Year);
+            } else if (this.Month > 0)
+            {
+                return string.Format(Contants.Date.Message.MONTH, this.Month);
+            }
+            else if (this.Day > 0)
+            {
+                return string.Format(Contants.Date.Message.DAY, this.Day);
+            }
+            else if (this.Hour > 0)
+            {
+                return string.Format(Contants.Date.Message.HOUR, this.Hour);
+            }
+            else if (this.Minute > 0)
+            {
+                return string.Format(Contants.Date.Message.MINUTE, this.Minute);
+            }
+            else if (this.Second > 0)
+            {
+                return string.Format(Contants.Date.Message.SECOND, this.Second);
+            }
+            else
+            {
+                return Contants.Date.Message.INSTANTLY;
+            }
+
+        }
     }
 }

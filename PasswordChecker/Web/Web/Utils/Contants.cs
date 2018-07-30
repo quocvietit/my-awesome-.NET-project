@@ -3,17 +3,44 @@
     public static class Contants
     {
         public const ulong BILLON = 10000000000;
+
+        public static class Title
+        {
+            public const string HOME = "Kiểm tra mật khẩu";
+            public const string ABOUT = "Giới thiệu";
+            public const string TERM = "Điều khoản";
+            public const string CONTRACT = "Liên hệ";
+        }
+
         public static class Message
         {
-            public const string TOP_PASSWORD = "Mật khẩu thuộc top {0} được sử dụng hàng đầu trên thế giới!";
-            
+            public static class Result
+            {
+                public const string TOP_PASSWORD = "Mật khẩu thuộc top {0} được sử dụng hàng đầu trên thế giới!";
+                public const string LENGTH_PASSWORD = "Độ dài: {0} ký tự - {1}";
+                public const string COMPLEXITY = "Độ phức tạp: {0}";
+                public const string TIME = "Thời gian bẻ khóa: {0}";
+                public const string ERROR = "Có lỗi xảy ra. Vui lòng liên hệ admin để biết thêm chi tiết!";
+            }
+
+            public static class Recommend
+            {
+                public const string TITLE = "Gợi ý tạo mật khẩu an toàn hơn:";
+                public const string DIGIT = "- Thêm chữ số vào mật khẩu.";
+                public const string ALL_CASE = "- Thêm chữ vào mật khẩu.";
+                public const string LOWER_CASE = "- Thay một vài chữ thường thành chữ hoa.";
+                public const string UPPER_CASE = "- Thay một vài chữ hoa thành chữ thường.";
+                public const string SYMBOL = "- Thêm ký tự đặc biệt như:@?\\()[]{}-|...";
+                public const string LENGTH = "- Tăng độ dài mật khẩu.";
+            }
+
             public static class Level
             {
                 public const string VERY_WEAK = "RẤT YẾU";
                 public const string WEAK = "YẾU";
                 public const string MEDIUM = "TRUNG BÌNH";
                 public const string STRONG = "MẠNH";
-                public const string VERY_STRONG = "RẤT Mạnh";
+                public const string VERY_STRONG = "KHÁ MẠNH";
             }
 
             public static class Color
@@ -23,6 +50,14 @@
                 public const string MEDIUM = "#00EE00";
                 public const string STRONG = "#00AA00";
                 public const string VERY_STRONG = "#008800";
+            }
+
+            public static class Complexity
+            {
+                public const string UPPER_CASE = "Chữ hoa";
+                public const string LOWER_CASE = "Chữ thường";
+                public const string DIGIT = "Số";
+                public const string SYMBOL = "Các ký tự đặc biệt";
             }
         }
         public static class Length
@@ -64,6 +99,17 @@
             public const int DAY = 24;
             public const int MONTH = 30;
             public const int YEAR = 12;
+
+            public static class Message
+            {
+                public const string INSTANTLY = "Ngay lập tức (Nhỏ hơn 1 giây)!";
+                public const string SECOND = "~ {0} giây.";
+                public const string MINUTE = "~ {0} phút.";
+                public const string HOUR = "~ {0} giờ.";
+                public const string DAY = "~ {0} ngày.";
+                public const string MONTH = "~ {0} tháng.";
+                public const string YEAR = "~ {0:N0} năm.";
+            }
 
         }
 
@@ -130,7 +176,6 @@
                 public const string DIGIT = "[0-9]";
                 public const string SYMBOL = "[!\"#$%&'()*+,-\\.\\/:;<=>?@[\\]^`{|}~_]";
             }
-
         }
     }
 }

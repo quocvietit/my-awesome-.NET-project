@@ -1,16 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Web.Models;
 using System.Diagnostics;
+using Web.Utils;
 
 namespace Web.Controllers
 {
     public class TermController : Controller
     {
+        public TermController()
+        {
+        }
+
         public IActionResult Index()
         {
-            ViewData["Title"] = "Điều khoản";
-            ViewData["Message"] = "Điều khoản sử dụng ứng dụng!";
-
+            ViewData["Title"] = Contants.Title.TERM;
             return View();
         }
 

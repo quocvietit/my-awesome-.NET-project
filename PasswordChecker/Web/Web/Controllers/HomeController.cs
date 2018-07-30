@@ -3,6 +3,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Web.Models;
 using Web.Services.Interface;
+using Web.Utils;
 
 namespace Web.Controllers
 {
@@ -21,28 +22,35 @@ namespace Web.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewData["ShowResult"] = false;
-            ViewData["Title"] = "Kiểm tra mật khẩu";
+            ViewData["Title"] = Contants.Title.HOME;
             return View();
         }
 
         [HttpPost]
-        public IActionResult Index(PasswordModel PasswordModel)
+        public IActionResult Index(ViewModel viewModel)
         {
+            ViewData["Title"] = Contants.Title.HOME;
+
+            ResultModel resultModel = new ResultModel();
+            RecommendModel recommendModel = new RecommendModel();
+
             try
             {
-                ViewData["ShowResult"] = true;
-                string password = PasswordModel.Password;
-                ViewBag.Result = "<p>ahihi</p><br/><p>Ahihi</p>";
+                string password = viewModel.PasswordModel.Password;
 
+                resultModel = _checkPasswordService.GetResult(password);
+                recommendModel = _checkPasswordService.GetRecommend();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("ERROR: " + ex);
-                ViewData["ShowResult"] = true;
-                ViewData["result"] = "Có vẻ đã xảy ra lỗi";
+                resultModel.Error = Contants.Message.Result.ERROR;
             }
-            return View();
+
+            viewModel.ResultModel = resultModel;
+            viewModel.RecommendModel = recommendModel;
+
+            return View(viewModel);
         }
 
         public IActionResult Error()
