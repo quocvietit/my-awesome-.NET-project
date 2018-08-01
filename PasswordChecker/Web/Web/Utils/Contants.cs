@@ -40,7 +40,7 @@
                 public const string WEAK = "YẾU";
                 public const string MEDIUM = "TRUNG BÌNH";
                 public const string STRONG = "MẠNH";
-                public const string VERY_STRONG = "KHÁ MẠNH";
+                public const string VERY_STRONG = "RẤT MẠNH";
             }
 
             public static class Color

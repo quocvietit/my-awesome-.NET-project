@@ -25,12 +25,18 @@ namespace Web.Services
 
             ResultModel result = new ResultModel();
             result.Level = _analysisPasswordService.LevelPassword();
-            result.LevelColor = this.GetLevelColor(result.Level);
             result.Message = this.GetResultCheckTopPassword(password);
             result.Length = this.GetResultCheckLengthPassword(password);
             result.Complexity = _analysisPasswordService.ComplexityPassword();
             result.Time = _analysisPasswordService.BruteForceSearchSpace();
 
+            if(result.Message != null)
+            {
+                result.Level = Contants.Message.Level.VERY_WEAK;
+
+            }
+
+            result.LevelColor = this.GetLevelColor(result.Level);
             return result;
         }
 
