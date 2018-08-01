@@ -30,3 +30,4 @@ D:\workspace\my-awesome-.NET-project\PasswordChecker\Web\Web\obj\Debug\netcoreap
 D:\workspace\my-awesome-.NET-project\PasswordChecker\Web\Web\obj\Debug\netcoreapp2.0\Web.AssemblyInfo.cs
 D:\workspace\my-awesome-.NET-project\PasswordChecker\Web\Web\obj\Debug\netcoreapp2.0\Web.dll
 D:\workspace\my-awesome-.NET-project\PasswordChecker\Web\Web\obj\Debug\netcoreapp2.0\Web.pdb
+D:\workspace\my-awesome-.NET-project\PasswordChecker\Web\Web\obj\Debug\netcoreapp2.0\Web.csprojAssemblyReference.cache
